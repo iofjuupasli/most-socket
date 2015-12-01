@@ -1,0 +1,15 @@
+{
+  "name": "most-socket-client",
+  "version": "0.1.0",
+  "description": "",
+  "main": "most-socket-client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Valery Tretyak <iofjuupasli@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "most": "^0.16.0",
+    "socket.io-client": "^1.3.7"
+  }
+}
