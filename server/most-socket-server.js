@@ -1,19 +1,18 @@
 var most = require('most');
 
 module.exports = function (io) {
-    function input(room, event) {
+    function input(ns, event) {
         return most.create(function (add) {
-            io.of(room).on(event, add);
-            return function () {
-                io.of(room).removeListener(event, add);
-            };
+            io.of(ns).on('connection', function (socket) {
+                socket.on(event, add);
+            });
         });
     }
 
-    function output(room, event) {
+    function output(ns, event) {
         return function (stream) {
             return stream.forEach(function (v) {
-                io.of(room).emit(event, v);
+                io.of(ns).emit(event, v);
             });
         };
     }
